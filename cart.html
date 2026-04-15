@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>🛒 Cart</h2>
+
+{% for p in products %}
+<div>
+    <img src="{{ p.img }}" width="120">
+    <h3>{{ p.name }}</h3>
+    <p>₹{{ p.price }}</p>
+</div>
+{% endfor %}
+
+<h3>Total: ₹{{ total }}</h3>
+
+<button>Buy Now</button>
+<a href="/"><button>Continue Shopping</button></a>
+
+</body>
+</html>
