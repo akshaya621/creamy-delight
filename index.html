@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Creamy Delights</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+<h1 class="logo">Creamy Delights</h1>
+<p>-Baked with Love, Served with Joy 🍰</p>
+
+<form method="get" action="/">
+    <input type="text" name="search" placeholder="Search..." class="search">
+    <button type="submit">Search</button>
+</form>
+
+<div class="action-buttons">
+    <a href="/wishlist"><button>❤️ Wishlist</button></a>
+    <a href="/cart"><button>🛒 Cart</button></a>
+</div>
+
+</header>
+
+<h2>Categories</h2>
+<div class="categories">
+
+<a href="/cat/Cakes">🎂 Cakes</a>
+<a href="/cat/Cookies">🍪 Cookies</a>
+<a href="/cat/Cheesecakes">🍰 Cheesecakes</a>
+<a href="/cat/Icecreams">🍨 Icecreams</a>
+<a href="/cat/Thickshakes">🥤 Thickshakes</a>
+
+</div>
+
+<div class="products">
+{% for p in products %}
+<div class="card">
+<img src="{{ p.img }}" width="200" height="200">
+<h3>{{ p.name }}</h3>
+<p>₹{{ p.price }}</p>
+
+<a href="/add_to_cart/{{ p.name }}">
+    <button>Add to Cart</button>
+</a>
+
+<a href="/add_to_wishlist/{{ p.name }}">
+    <button>Add to Wishlist</button>
+</a>
+
+</div>
+{% endfor %}
+</div>
+
+<div class="about">
+<p>
+Creamy Delights brings you freshly baked cakes, cookies and desserts made with love.
+Enjoy premium quality sweets crafted to give you happiness in every bite!
+</p>
+</div>
+
+</body>
+</html>
